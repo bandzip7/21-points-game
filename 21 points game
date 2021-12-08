@@ -1,0 +1,29 @@
+from random import *
+import time
+s=0
+s1=[1,2,3,4,5,6,7,8,9,10,10,10,10,]
+s2=4*s1
+print("Welcome to Las Vegas.Let's play now!")
+makers=s2.pop(randint(11,len(s2)-1))
+print("Start issuing cards")
+time.sleep(0.8)
+shuffle(s2)
+s=s2.pop(randint(0,len(s2)-1))
+players=s
+while players<=21:
+    time.sleep(0.7)
+    print("Now your cards total points is {}".format(players))
+    t=input("More cards?                   Yes or No?")
+    if t == "Y" or t=="y" or t=="Yes" or t=="yes":
+        s=s2.pop(randint(0,len(s2)-1))
+        players=players+s
+    elif t=="No" or t=="no" or t=="N" or t=="n":
+        q=max(makers,players)
+        if q==players:
+            print("You are win!")
+        else:
+            print("You failed!")
+        break
+else:
+    print("You failed!")
+    
